@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { Account } from "../model/Account";
 
 function AccountCreation({createAccount}: {createAccount: (account: Account) => void}) {
-const { register, handleSubmit, watch, formState: { errors } } = useForm<Account>();
+const { register, handleSubmit, formState: { errors } } = useForm<Account>();
 const onSubmit = (data: Account) => {
     console.log(data);
     createAccount(data)

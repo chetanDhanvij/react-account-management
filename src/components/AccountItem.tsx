@@ -7,7 +7,7 @@ import { Account } from '../model/Account';
 
 function AccountItem({account, editAccount}: {account:Account, editAccount: (account: Account) => void}) {
 
-    const { register, handleSubmit, watch, formState: { errors }, setValue } = useForm<Account>();
+    const { register, handleSubmit, formState: { errors }, setValue } = useForm<Account>();
     const onSubmit = (data: Account) => {
         console.log(data);
         editAccount(data)
