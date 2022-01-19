@@ -3,8 +3,8 @@ import { Button, Card, CardActions, CardContent, Grid, List, ListItem, ListItemB
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Account } from '../model/Account';
-import AccountCreation from './AccountCreation';
-import AccountItem from './AccountItem';
+import AccountCreation from '../components/AccountCreation';
+import AccountItem from '../components/AccountItem';
 
 const BASE_URL = "http://localhost:8080";
 
