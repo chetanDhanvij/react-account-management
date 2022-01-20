@@ -4,7 +4,8 @@ import { useForm } from "react-hook-form";
 import { Account } from "../model/Account";
 
 function AccountCreation({createAccount}: {createAccount: (account: Account) => void}) {
-const { register, handleSubmit, formState: { errors } } = useForm<Account>();
+const { register, handleSubmit, setValue, formState: { errors } } = useForm<Account>();
+
 const onSubmit = (data: Account) => {
     console.log(data);
     createAccount(data)
@@ -19,10 +20,10 @@ const onSubmit = (data: Account) => {
                     <FormControl fullWidth variant="standard">
                         <InputLabel id="demo-simple-select-standard-label">Account Type</InputLabel>
                         <Select
-                        labelId="demo-simple-select-standard-label"
-                        id="demo-simple-select-standard"
-                        {...register("accountType")}
-                        label="Account Type"
+                            labelId="demo-simple-select-standard-label"
+                            id="demo-simple-select-standard"
+                            {...register("accountType")}
+                            label="Account Type"
                         >
                             <MenuItem value={"SAVING"}>SAVING</MenuItem>
                             <MenuItem value={"CHECKING"}>CHECKING</MenuItem>
