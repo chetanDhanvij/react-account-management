@@ -11,27 +11,6 @@ const BASE_URL = "http://localhost:8080";
 function AccountList() {
 	const [accounts, setAccounts] = useState<Account[]>([]);
 
-    //Api call to create account
-    const createAccount = async (account: Account) => {
-        try {
-            const { data } = await axios.post<Account[]>(BASE_URL + "/accounts", account)
-            setAccounts(data);  
-        } catch(err) {
-            alert(err);
-        }
-    };
-
-    //Api call to edit account name
-    const editAccount = async (account: Account) => {
-        try {
-            const { data } = await axios.patch<Account[]>(BASE_URL + "/accounts/" + account.id, {accountName: account.accountName})
-            setAccounts(data);  
-        } catch(err) {
-            alert(err);
-        }
-    };
-
-    
     //Api call to get accounts
     const loadAccounts = async () => {
         const { data }  = await axios.get<Account[]>(BASE_URL + "/accounts");
@@ -41,8 +20,31 @@ function AccountList() {
     //Load accounts on component render
     useEffect(()=> {
         loadAccounts();
-    },[])
+    },[]);
+    
+    
 
+    //Api call to create account
+    const createAccount = async (account: Account) => {
+        try {
+            const { data } = await axios.post<Account[]>(BASE_URL + "/accounts", account)
+            loadAccounts();  
+        } catch(err) {
+            alert(err);
+        }
+    };
+
+    //Api call to edit account name
+    const editAccount = async (account: Account) => {
+        try {
+            const { data } = await axios.patch<Account[]>(BASE_URL + "/accounts/" + account.id, {accountName: account.accountName})
+            loadAccounts();  
+        } catch(err) {
+            alert(err);
+        }
+    };
+
+    
   return (
     <Grid container spacing={1}>
         <Grid item xs={4}>
