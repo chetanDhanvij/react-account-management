@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
-import { Button, Card, CardActions, CardContent, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Paper, Typography } from '@mui/material';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Account } from '../model/Account';
 import AccountCreation from '../components/AccountCreation';
 import AccountItem from '../components/AccountItem';
+import { Grid, Typography, List, Paper } from '@mui/material';
 
 const BASE_URL = "http://localhost:8080";
 

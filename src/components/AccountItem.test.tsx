@@ -2,7 +2,7 @@ import '@testing-library/jest-dom'
 // NOTE: jest-dom adds handy assertions to Jest and is recommended, but not required
 
 import * as React from 'react'
-import {fireEvent, render, screen} from '@testing-library/react'
+import { render, screen} from '@testing-library/react'
 import AccountItem from './AccountItem'
 import { Account } from '../model/Account'
 
